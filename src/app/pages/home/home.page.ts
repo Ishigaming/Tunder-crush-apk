@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ToastController, GestureController, Platform } from '@ionic/angular';
-import { Router } from '@angular/router'; // Importado para navegación programática
+import { Router } from '@angular/router';
 
 interface User {
     id: number;
@@ -16,7 +16,7 @@ interface User {
     selector: 'app-home',
     templateUrl: './home.page.html',
     styleUrls: ['./home.page.scss'],
-    standalone: false, // Confirmando que no usa Standalone Components
+    standalone: false,
 })
 export class HomePage implements OnInit {
 
@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
         private gestureController: GestureController,
         private platform: Platform,
         private cdRef: ChangeDetectorRef,
-        private router: Router // Inyección del Router
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -51,9 +51,6 @@ export class HomePage implements OnInit {
         ];
     }
     
-    // ===========================================
-    // FUNCIONES DE NAVEGACIÓN PROGRAMÁTICA PARA EL FOOTER
-    // ===========================================
     public goToChats() {
         this.router.navigateByUrl('/chats');
     }
@@ -63,13 +60,9 @@ export class HomePage implements OnInit {
     }
 
     public goToProfileUpdate() {
-        // Redirección a la ruta /update según lo solicitado
         this.router.navigateByUrl('/update'); 
     }
     
-    // ===========================================
-    // FUNCIONALIDAD PARA BOTONES DE SWIPE
-    // ===========================================
     public async swipeLeft() {
         if (this.currentCard) {
             const windowWidth = this.platform.width();
@@ -109,9 +102,6 @@ export class HomePage implements OnInit {
         this.setupSwipeGesture();
     }
     
-    // ===========================================
-    // LÓGICA DE GESTOS (MANTENIDA)
-    // ===========================================
     setupSwipeGesture() {
         if (this.users.length === 0) return;
 
