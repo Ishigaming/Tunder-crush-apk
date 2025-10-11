@@ -1,0 +1,211 @@
+/* update.page.scss */
+
+.profile-page {
+    --background: #fff;
+    padding: 16px;
+}
+
+.profile-header ion-toolbar {
+    --background: white;
+    --border-width: 0;
+}
+
+.profile-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    padding-left: 0;
+    margin-left: 0; 
+}
+
+ion-back-button {
+    --color: #f77062; 
+}
+
+.save-btn {
+    --color: #f77062;
+    font-weight: 600;
+    text-transform: none; /* Mantener la capitalización si es necesario */
+}
+
+/* --- Foto de Perfil Central --- */
+.card-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.profile-photo-card {
+    width: 140px;
+    height: 180px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* --- Campos de Entrada --- */
+.input-section {
+    margin-bottom: 30px;
+    padding: 0 5px; 
+}
+
+.custom-input-item {
+    --background: transparent;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    
+    ion-label {
+        font-size: 0.9rem;
+        color: #999;
+        font-weight: 500;
+    }
+
+    ion-input {
+        --padding-start: 0;
+        font-size: 1.1rem;
+        color: #333;
+        --padding-top: 5px;
+        --padding-bottom: 5px;
+    }
+
+    .underline {
+        height: 1px;
+        background: #f77062; 
+        width: 100%;
+    }
+}
+
+
+/* --- Pasiones / Tags --- */
+.passions-section {
+    margin-bottom: 30px;
+    padding: 0 5px;
+
+    .passions-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    
+    .tag {
+        background: #fbe6e5; 
+        color: #f77062;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        
+        &.red {
+            background: #f77062;
+            color: white;
+        }
+
+        ion-icon {
+            margin-left: 5px;
+            font-size: 1rem;
+            color: inherit; 
+            cursor: pointer;
+        }
+
+        &.red ion-icon {
+            color: white; 
+        }
+    }
+    
+    .add-passion-icon {
+        font-size: 2rem;
+        color: #f77062;
+        cursor: pointer;
+    }
+}
+
+/* --- Media Section --- */
+.media-section {
+    margin-bottom: 30px;
+    padding: 0 5px;
+
+    .media-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .media-upload-area {
+        height: 50px;
+        border: 1px dashed #ddd; 
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .camera-icon {
+        font-size: 1.5rem;
+        color: #999;
+    }
+}
+
+/* --- Estilos del Footer (Barra de Navegación) --- */
+.navigation-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 20;
+    background: white;
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px;
+    border: 2px solid #f77062; 
+    border-bottom: none; 
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    padding-top: 5px; 
+}
+
+.main-navbar {
+    --background: white;
+    --border-width: 0;
+    --min-height: 50px;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    ion-icon {
+        font-size: 1.6rem; 
+        color: #ccc; 
+        transition: color 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+    
+    /* ESTILO ACTIVO EN UPDATE PAGE (Person) */
+    .active-nav {
+        color: #f77062; 
+        font-size: 1.8rem; 
+        transform: scale(1.1); 
+    }
+}

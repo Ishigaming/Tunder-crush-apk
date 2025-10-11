@@ -1,13 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>update</ion-title>
-  </ion-toolbar>
+<ion-header class="profile-header">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/home" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title class="profile-title">Profile</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="saveProfile()" color="primary" class="save-btn">
+                Guardar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">update</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="profile-page" [formGroup]="profileForm">
+    
+    <div class="card-photo-container">
+        <div class="profile-photo-card">
+            <img src="https://images.unsplash.com/photo-1549419149-16e6d1c81734?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile photo placeholder" />
+        </div>
+    </div>
+
+    <div class="input-section">
+        
+        <ion-item lines="none" class="custom-input-item">
+            <ion-label position="stacked">First name</ion-label>
+            <ion-input type="text" formControlName="firstName"></ion-input>
+            <div class="underline"></div>
+        </ion-item>
+        
+        <ion-item lines="none" class="custom-input-item">
+            <ion-label position="stacked">Last name</ion-label>
+            <ion-input type="text" formControlName="lastName"></ion-input>
+            <div class="underline"></div>
+        </ion-item>
+        
+        <ion-item lines="none" class="custom-input-item">
+            <ion-label position="stacked">Country</ion-label>
+            <ion-input type="text" formControlName="country"></ion-input>
+            <div class="underline"></div>
+        </ion-item>
+    </div>
+
+    <div class="passions-section">
+        <ion-label class="passions-title">Passions</ion-label>
+        <div class="tags-container">
+            <div class="tag" *ngFor="let passion of passions">
+                {{ passion }} 
+                <ion-icon name="close-circle" (click)="removePassion(passion)"></ion-icon>
+            </div>
+            
+            <ion-icon name="add-circle" class="add-passion-icon" (click)="addPassion('Nuevo Tag')"></ion-icon>
+        </div>
+    </div>
+    
+    <div class="media-section">
+        <ion-label class="media-title">Add media</ion-label>
+        <div class="media-upload-area" (click)="uploadMedia()">
+            <ion-icon name="camera-reverse-outline" class="camera-icon"></ion-icon>
+        </div>
+    </div>
+
 </ion-content>
+
+<ion-footer class="navigation-footer">
+    <ion-toolbar class="main-navbar">
+        <div class="nav-icons">
+            <ion-icon name="mail" (click)="goToChats()"></ion-icon>
+            <ion-icon name="globe" (click)="goToHome()"></ion-icon>
+            <ion-icon name="person" class="active-nav" (click)="goToProfileUpdate()"></ion-icon>
+        </div>
+    </ion-toolbar>
+</ion-footer>

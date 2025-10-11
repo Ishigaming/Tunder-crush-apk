@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ToastController, GestureController, Platform } from '@ionic/angular';
-// 1. IMPORTAR EL ROUTER DE ANGULAR
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router'; // Importado para navegación programática
 
 interface User {
     id: number;
@@ -17,7 +16,7 @@ interface User {
     selector: 'app-home',
     templateUrl: './home.page.html',
     styleUrls: ['./home.page.scss'],
-    standalone: false,
+    standalone: false, // Confirmando que no usa Standalone Components
 })
 export class HomePage implements OnInit {
 
@@ -29,8 +28,7 @@ export class HomePage implements OnInit {
         private gestureController: GestureController,
         private platform: Platform,
         private cdRef: ChangeDetectorRef,
-        // 2. INYECTAR EL ROUTER
-        private router: Router
+        private router: Router // Inyección del Router
     ) { }
 
     ngOnInit() {
@@ -54,7 +52,23 @@ export class HomePage implements OnInit {
     }
     
     // ===========================================
-    // FUNCIONALIDAD AÑADIDA PARA BOTONES DE SWIPE
+    // FUNCIONES DE NAVEGACIÓN PROGRAMÁTICA PARA EL FOOTER
+    // ===========================================
+    public goToChats() {
+        this.router.navigateByUrl('/chats');
+    }
+
+    public goToHome() {
+        this.router.navigateByUrl('/home');
+    }
+
+    public goToProfileUpdate() {
+        // Redirección a la ruta /update según lo solicitado
+        this.router.navigateByUrl('/update'); 
+    }
+    
+    // ===========================================
+    // FUNCIONALIDAD PARA BOTONES DE SWIPE
     // ===========================================
     public async swipeLeft() {
         if (this.currentCard) {
@@ -94,15 +108,6 @@ export class HomePage implements OnInit {
         this.cdRef.detectChanges();
         this.setupSwipeGesture();
     }
-    
-    // ===========================================
-    // FUNCIÓN DE NAVEGACIÓN PROGRAMÁTICA (OPCIONAL)
-    // ===========================================
-    public goToChats() {
-        // Esta es la función que ejecutaría el botón 'mail' si no usaras routerLink
-        this.router.navigateByUrl('/chats');
-    }
-    // NOTA: Para los botones del footer, es preferible usar routerLink en el HTML.
     
     // ===========================================
     // LÓGICA DE GESTOS (MANTENIDA)
@@ -152,7 +157,6 @@ export class HomePage implements OnInit {
         gesture.enable(true);
     }
     
-    // ... (animateExit, animateReturn, checkUserList, presentToast se mantienen) ...
     private animateExit(x: number, direction: 'left' | 'right'): Promise<void> {
         return new Promise(resolve => {
             if (this.currentCard) {
