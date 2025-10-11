@@ -1,0 +1,51 @@
+<ion-content class="gender-page">
+  <ion-icon
+    name="arrow-back-outline"
+    class="back-icon"
+    (click)="goBack()">
+  </ion-icon>
+
+  <div class="page-wrapper">
+    <div class="gender-container">
+      <div class="logo-container">
+        <img src="assets/img/tinder-logo.png" alt="Tinder" class="logo" />
+      </div>
+
+      <h2 class="title">I am a</h2>
+
+      <div class="buttons">
+        <ion-button
+          expand="block"
+          fill="outline"
+          shape="round"
+          class="gender-btn"
+          [class.selected]="selectedGender === 'woman'"
+          (click)="selectGender('woman')">
+          WOMAN
+        </ion-button>
+        <ion-button
+          expand="block"
+          fill="outline"
+          shape="round"
+          class="gender-btn"
+          [class.selected]="selectedGender === 'man'"
+          (click)="selectGender('man')">
+          MAN
+        </ion-button>
+      </div>
+
+      <div class="checkbox-container">
+        <ion-checkbox [(ngModel)]="showGender" color="light"></ion-checkbox>
+        <label>Show my gender on my profile</label>
+      </div>
+
+      <ion-button
+        expand="block"
+        class="continue-btn"
+        [disabled]="!selectedGender"
+        (click)="continue()">
+        Continue
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

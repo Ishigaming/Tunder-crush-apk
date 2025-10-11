@@ -1,13 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="home-page">
+    <div class="discover-title">Discover</div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="card-container">
+        <div class="user-card" *ngFor="let user of users">
+            <img [src]="user.photo" alt="User photo" class="user-photo" />
+
+            <ion-icon name="flame" class="tinder-logo"></ion-icon>
+            
+            <div class="card-info">
+                <div class="distance">{{ user.distance }} Km</div>
+                
+                <div class="text-info">
+                    <div class="name-age">
+                        {{ user.name }}, {{ user.age }}
+                    </div>
+                    <div class="location">
+                        {{ user.gender }}, {{ user.city }}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf="users.length === 0" class="no-users-message">
+            No quedan más perfiles cerca.
+        </div>
+    </div>
 </ion-content>
+
+<ion-footer class="navigation-footer">
+    <ion-toolbar class="main-navbar">
+        <div class="nav-icons">
+            <ion-icon name="mail" (click)="goToChats()"></ion-icon>
+            
+            <ion-icon name="globe" class="active-nav" routerLink="/home"></ion-icon>
+            
+            <ion-icon name="person" routerLink="/profile"></ion-icon>
+        </div>
+    </ion-toolbar>
+</ion-footer>
+

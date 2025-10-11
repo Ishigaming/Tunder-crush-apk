@@ -1,0 +1,28 @@
+<ion-content class="add-media-page">
+  <div class="page-wrapper">
+    <img src="assets/img/tinder-logo.png" alt="Tinder" class="logo">
+
+    <h2 class="title">Add media</h2>
+
+    <div class="photos-grid">
+      <div
+        class="photo-slot"
+        *ngFor="let img of images; let i = index">
+        <img [src]="img" alt="Photo" class="photo" />
+        <button class="remove-btn" (click)="removeImage(i)">✖</button>
+      </div>
+
+      <div class="photo-slot add" (click)="addPhoto()">
+        <ion-icon name="add-outline"></ion-icon>
+      </div>
+    </div>
+
+    <ion-button
+    expand="block"
+    class="finish-btn"
+    [disabled]="images.length === 0"
+    (click)="continue()">
+    Finish
+  </ion-button>
+  </div>
+</ion-content>

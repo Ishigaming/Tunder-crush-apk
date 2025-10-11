@@ -1,0 +1,88 @@
+.passions-page {
+  --background: #fd5068;
+  color: white;
+  position: relative;
+
+  /* El contenedor principal que centra todo */
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* centra verticalmente */
+    flex-direction: column;
+    position: relative;
+  }
+
+  .back-icon {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .passions-container {
+    text-align: center;
+    width: 85%;
+    max-width: 400px;
+  }
+
+  .logo-container {
+    margin-bottom: 20px;
+
+    .logo {
+      width: 160px;
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #fff;
+    opacity: 0.8;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+
+  .passions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .passion-btn {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+    padding: 8px 18px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+
+    &.selected {
+      background: white;
+      color: #fd5068;
+    }
+  }
+
+  .continue-btn {
+    --background: linear-gradient(90deg, #fd297b 0%, #ff655b 100%);
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    height: 48px;
+    text-transform: uppercase;
+  }
+}

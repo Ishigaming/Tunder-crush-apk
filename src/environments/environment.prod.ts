@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  firebaseConfig: {
+  firebase: {
   apiKey: "AIzaSyAYX-Pw3zDmOM40ZFX-0xHhPpEmoYvTmbc",
   authDomain: "tinder-apk.firebaseapp.com",
   projectId: "tinder-apk",

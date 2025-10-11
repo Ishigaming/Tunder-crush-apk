@@ -1,0 +1,18 @@
+[
+  {
+    "origin": [
+      "http://localhost:8100",
+      "https://localhost",
+      "capacitor://localhost" 
+    ],
+    "method": ["GET", "PUT", "POST", "DELETE"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": ["Content-Type", "Authorization", "x-firebase-storage-download-tokens"]
+  },
+  {
+    "origin": ["*"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600,
+    "responseHeader": ["Content-Type", "x-firebase-storage-download-tokens"]
+  }
+]

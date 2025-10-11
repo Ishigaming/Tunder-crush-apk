@@ -1,0 +1,51 @@
+<ion-content class="birthdate-page">
+  <ion-icon
+    name="arrow-back-outline"
+    class="back-icon"
+    (click)="goBack()">
+  </ion-icon>
+
+  <div class="page-wrapper">
+    <div class="content-container">
+      <div class="logo-container">
+        <img src="assets/img/tinder-logo.png" alt="Tinder" class="logo" />
+      </div>
+
+      <h2 class="title">My birthdate is</h2>
+
+      <div class="date-inputs">
+        <input
+          type="text"
+          maxlength="4"
+          placeholder="YYYY"
+          [(ngModel)]="year"
+          (input)="moveNext($event, 'monthInput')" />
+        <span>/</span>
+        <input
+          #monthInput
+          type="text"
+          maxlength="2"
+          placeholder="MM"
+          [(ngModel)]="month"
+          (input)="moveNext($event, 'dayInput')" />
+        <span>/</span>
+        <input
+          #dayInput
+          type="text"
+          maxlength="2"
+          placeholder="DD"
+          [(ngModel)]="day" />
+      </div>
+
+      <p class="info-text">Your age will be public</p>
+
+      <ion-button
+        expand="block"
+        class="continue-btn"
+        [disabled]="!isComplete()"
+        (click)="continue()">
+        Continue
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

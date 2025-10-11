@@ -1,0 +1,185 @@
+.home-page {
+    --background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 0 80px 0; 
+
+    .discover-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 16px;
+        color: #333;
+    }
+
+    .card-container {
+        position: relative;
+        margin: 0 16px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 70vh;
+        min-height: 400px;
+        padding-top: 10px;
+    }
+
+    .user-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        height: 100%;
+        max-height: calc(100vh - 200px);
+
+        border-radius: 20px; 
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-out;
+        
+        .tinder-logo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--ion-color-danger, #eb445a);
+            z-index: 12;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4));
+        }
+
+
+        &:first-child {
+            z-index: 10;
+            transform: scale(1);
+        }
+
+        &:nth-child(2) {
+            transform: translateY(10px) scale(0.96);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            z-index: 9;
+        }
+        &:nth-child(3) {
+            transform: translateY(20px) scale(0.92);
+            z-index: 8;
+            opacity: 0.8;
+        }
+
+
+        .user-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+
+            .distance {
+                position: absolute;
+                top: -95%; 
+                left: 20px;
+                right: auto;
+                background: rgba(255, 255, 255, 0.9);
+                color: #333;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-shadow: none;
+                border: 2px solid var(--ion-color-danger, #eb445a);
+                line-height: 1; 
+            }
+
+            .action-circle { display: none; }
+
+            .text-info {
+                .name-age {
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    margin-bottom: 4px;
+                }
+
+                .location {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+
+    .no-users-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.1rem;
+        color: #888;
+    }
+}
+
+
+/* ESTILOS DE LA BARRA DE NAVEGACIÓN INFERIOR (FOOTER) */
+.navigation-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 20;
+    background: white;
+    
+    border-top-left-radius: 25px; 
+    border-top-right-radius: 25px;
+    border: 2px solid #f77062; 
+    border-bottom: none; 
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    padding-top: 5px; 
+}
+
+.action-toolbar {
+    --background: transparent;
+    --border-width: 0;
+    --min-height: auto;
+    padding: 10px 0;
+}
+
+.main-navbar {
+    --background: white;
+    --border-width: 0;
+    --min-height: 50px;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    ion-icon {
+        font-size: 1.6rem; 
+        color: #ccc; 
+        transition: color 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .active-nav {
+        color: #f77062; 
+        font-size: 1.8rem; 
+        transform: scale(1.1); 
+    }
+
+    .central-btn {
+        display: none;
+    }
+}

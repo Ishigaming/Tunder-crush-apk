@@ -1,0 +1,39 @@
+<ion-content class="passions-page">
+  <div class="page-wrapper">
+    <ion-icon
+      name="arrow-back-outline"
+      class="back-icon"
+      (click)="goBack()">
+    </ion-icon>
+
+    <div class="passions-container">
+      <div class="logo-container">
+        <img src="assets/img/tinder-logo.png" alt="Tinder" class="logo" />
+      </div>
+
+      <h2 class="title">Passions</h2>
+      <p class="subtitle">
+        Let everyone know what you are passionate about, <br>
+        by adding it to your profile
+      </p>
+
+      <div class="passions-grid">
+        <button
+          *ngFor="let passion of passions"
+          class="passion-btn"
+          [class.selected]="isSelected(passion)"
+          (click)="togglePassion(passion)">
+          {{ passion }}
+        </button>
+      </div>
+
+      <ion-button
+        expand="block"
+        class="continue-btn"
+        [disabled]="selectedPassions.length === 0"
+        (click)="continue()">
+        Continue
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
